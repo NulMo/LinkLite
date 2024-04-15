@@ -1,6 +1,14 @@
 import redis from 'redis'
 
-const client = redis.createClient()
+const client = redis.createClient({
+  username: 'default',
+  password: '88b90a367eea4f2f830ffbff2ebfa9c5',
+  socket: {
+      host: 'skilled-macaw-50651.upstash.io',
+      port: 50651,
+      tls: true,
+  }
+});
 
 await client.connect()
 client.on('error', (err) => console.error('Redis Client Error:', err))
