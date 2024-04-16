@@ -8,7 +8,7 @@ function App() {
     event.preventDefault()
     const jsonData = JSON.stringify(formData)
     try {
-      const response = await fetch('http://localhost:4000/submit', {
+      const response = await fetch('https://linklite-i09t.onrender.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type' : 'application/json'
@@ -17,7 +17,7 @@ function App() {
       })
       const data = await response.text()
       console.log(data.data)
-      setMessage('URL shortened successfully! Your shortened URL is: http://localhost:4000/' + data)
+      setMessage('URL shortened successfully! Your shortened URL is: https://linklite-i09t.onrender.com/' + data)
     } catch (err) {
       console.error(err)
       setMessage('Error shortening URL. Please try again.')
