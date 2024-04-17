@@ -1,17 +1,14 @@
 import generateId from './generateId.js'
 import { databaseImport, databaseExport } from './database.js'
 import { isValid, fixUrl } from './urlCheck.js'
-import express, { json } from 'express'
+import express from 'express'
 import cors from 'cors'
 
 
 const app = express()
 app.use(cors())
-// const url = 'google.com'
 
-// databaseImport(id, url)
-
-// databaseExport(id)
+const port = process.env.PORT || 4000
 
 app.get('/:id', async (req, res) => {
   const id = req.params.id;
@@ -34,8 +31,6 @@ app.post('/submit', async(req, res) => {
   res.send(id)
 })
 
-app.listen(4000, () => {
+app.listen(port, () => {
   console.log('Server listening on port :4000')
 })
-
-// take a look at a crash course to check how to handle routes, post, get
