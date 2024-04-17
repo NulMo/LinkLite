@@ -8,7 +8,7 @@ import cors from 'cors'
 const app = express()
 app.use(cors())
 
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 3000
 
 app.get('/:id', async (req, res) => {
   const id = req.params.id;
