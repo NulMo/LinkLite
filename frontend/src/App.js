@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
+import {ThreeDots} from 'react-loader-spinner'
 import './App.css'
 function App() {
   const [formData, setFormData] = useState({ url: '' })
   const [message, setMessage] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     const jsonData = JSON.stringify(formData)
+    setIsLoading(true);
     try {
+      setMessage('Loading')
       const response = await fetch('https://linklite-i09t.onrender.com/submit', {
         method: 'POST',
         headers: {
@@ -21,6 +25,8 @@ function App() {
     } catch (err) {
       console.error(err)
       setMessage('Error shortening URL. Please try again.')
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -36,6 +42,7 @@ function App() {
             <input name="url" placeholder="shortenme.com" onChange={handleChange} value={formData.url} />
             <button type="submit">Submit</button>
           </form>
+          {isLoading && <p><ThreeDots visible={true} height="10" width="30" color="#3498db" radius="9" ariaLabel="three-dots-loading" wrapperStyle={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} wrapperClass="" /> </p>}
           {message && <p>{message}</p>}
         </header>
       </div>
