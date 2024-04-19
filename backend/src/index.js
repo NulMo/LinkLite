@@ -32,5 +32,5 @@ app.post('/submit', async(req, res) => {
 })
 
 app.listen(port, () => {
-  console.log('Server listening on port :4000')
+  console.log(`Server listening on port :${port}`)
 })
