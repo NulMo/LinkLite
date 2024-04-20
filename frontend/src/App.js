@@ -8,6 +8,10 @@ function App() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    if (!formData.url.includes('.')) {
+      setMessage('Please enter a valid URL')
+      return;
+    }
     const jsonData = JSON.stringify(formData)
     setIsLoading(true);
     try {
