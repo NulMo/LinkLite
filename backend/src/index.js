@@ -13,7 +13,12 @@ const port = process.env.PORT || 3000
 app.get('/:id', async (req, res) => {
   const id = req.params.id;
   const url = await databaseExport(id)
-  res.redirect(url)
+  if (url === null) {
+    res.send('This URL is not found')
+  }
+  else {
+    res.redirect(url)
+  }
 })
 
 app.use(express.json());
