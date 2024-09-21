@@ -2,10 +2,10 @@ import redis from 'redis'
 
 const client = redis.createClient({
   username: 'default',
-  password: '88b90a367eea4f2f830ffbff2ebfa9c5',
+  password: 'AVKHAAIjcDE3Yjg3NmZlMjU1ZGM0YjZmODk4OWYxMTMxNDU5NTUzN3AxMA',
   socket: {
-      host: 'skilled-macaw-50651.upstash.io',
-      port: 50651,
+      host: 'warm-chipmunk-21127.upstash.io',
+      port: 6379,
       tls: true,
   }
 });
